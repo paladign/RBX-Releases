@@ -1,6 +1,7 @@
 local Functions = {
     ["Highlight"] = function(args) --args = Instance, Bool, Color3
-        if args[2] == true and args[1]:FindFirstChild("Highlight") == nil then
+        if args[2] == true then
+            if args[1]:FindFirstChild("Highlight") then return end
             local Highlight = Instance.new("Highlight", args[1])
             Highlight.FillColor = Color3.new(1,0.5,0.75)
             if args[3] ~= nil then
