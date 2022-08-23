@@ -1,5 +1,5 @@
 local Functions = {
-    ["Highlight"] = function(args) --args = Instance, Bool, Color3
+    ["Highlight"] = function(args) --args = Instance, Bool, Color3 (optional)
         if args[2] == true then
             if args[1]:FindFirstChild("Highlight") then return end
             local Highlight = Instance.new("Highlight", args[1])
