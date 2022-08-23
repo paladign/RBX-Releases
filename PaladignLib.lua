@@ -1,7 +1,7 @@
-local Functions = {
-    ["Highlight"] = function()
-        print("Test")
-    end
-}
+local Functions = {}
+
+local function Functions.Highlight()
+    print("Test")
+end
 
 return Functions
