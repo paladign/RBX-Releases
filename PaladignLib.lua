@@ -1,19 +1,26 @@
 local Functions = {
-    ["Highlight"] = function(args) --args = Instance, Bool, Color3 (optional)
-        if args[2] == true then
-            if args[1]:FindFirstChild("Highlight") then return end
-            local Highlight = Instance.new("Highlight", args[1])
+    ["AddHighlight"] = function(obj, creating, color) --args = Instance, Bool, Color3 (optional)
+        if creating == true then
+            if obj:FindFirstChild("Highlight") then return end
+            local Highlight = Instance.new("Highlight", obj)
             Highlight.FillColor = Color3.new(1,0.5,0.75)
-            if args[3] ~= nil then
-                Highlight.FillColor = args[3]
+            if color ~= nil then
+                Highlight.FillColor = color
             end
-        elseif args[2] == false then
-            for _, obj in pairs(args[1]:GetChildren()) do
+            Highlight.OutlineColor = Highlight.Fillcolor
+        elseif creating == false then
+            for _, obj in pairs(inst:GetChildren()) do
                 if obj:IsA("Highlight") then
                     obj:Destroy()
                 end
             end
         end
+    end,
+    ["AddESP"] = function(obj)
+        local text = Drawing.new("Text")
+        text.Text = "Test"
+        text.Visible = true
+        text.Position = workspace.CurrentCamera:WorldToViewportPoint(obj.Position)
     end
 }
 
