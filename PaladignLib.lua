@@ -1,6 +1,6 @@
 local Functions = {}
 
-local function Functions.Highlight()
+Functions.Highlight = function()
     print("Test")
 end
 
