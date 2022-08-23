@@ -1,5 +1,6 @@
 local Functions = {
     ["Highlight"] = function(args)
+        print(args)
         if args[2] == true then
             local Highlight = Instance.new("HighLight", args[1])
         elseif args[2] == false then
