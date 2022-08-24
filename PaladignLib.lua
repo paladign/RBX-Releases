@@ -28,6 +28,9 @@ local Functions = {
             elseif not vis then
                 datatable[1].Visible = false
             end
+            if obj == nil then
+                datatable[1]:Remove()
+            end
         end
     end,
     ["AddESP"] = function(obj)
