@@ -19,6 +19,7 @@ local Functions = {
     ["AddESP"] = function(obj)
         local text = Drawing.new("Text")
         text.Text = "Test"
+        text.Size = 4
         text.Color = Color3.new(1,0.5,0.75)
         text.Visible = true
         local vec = workspace.CurrentCamera:WorldToViewportPoint(obj.Position)
