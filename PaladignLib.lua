@@ -33,6 +33,14 @@ local Functions = {
         text.Visible = true
         local datatable = {text, obj}
         table.insert(ESPs, datatable)
+    end,
+    ["RemoveESP"] = function(obj)
+        for index, datatable in pairs(ESPs) do
+            if datatable[2] == obj then
+                table.remove(ESPs, index)
+                datatable[1]:Remove()
+            end
+        end
     end
 }
 
