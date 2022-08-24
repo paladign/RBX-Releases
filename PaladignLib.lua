@@ -20,9 +20,14 @@ local Functions = {
     ["UpdateESP"] = function(tab)
         for _, datatable in pairs(ESPs) do
             local obj = datatable[2]
-            local vec = workspace.CurrentCamera:WorldToViewportPoint(obj.Position)
-            local vec2 = Vector2.new(vec.X, vec.Y)
+            local vec, vis = workspace.CurrentCamera:WorldToViewportPoint(obj.Position)
+            local vec2 = Vector2.new(vec.X, vec.Y+obj.Size.Y)
             datatable[1].Position = vec2
+            if vis then
+                datatable[1].Visible = true
+            elseif not vis then
+                datatable[1].Visible = false
+            end
         end
     end,
     ["AddESP"] = function(obj)
@@ -31,7 +36,7 @@ local Functions = {
         if obj.Parent:IsA("Model") then
             text.Text = obj.Parent.Name
         end
-        text.Size = 50
+        text.Size = 20
         text.Center = true
         text.Color = Color3.new(1,0.5,0.75)
         text.Visible = true
@@ -44,6 +49,12 @@ local Functions = {
                 table.remove(ESPs, index)
                 datatable[1]:Remove()
             end
+        end
+    end,
+    ["ClearESP"] = function()
+        for index, datatable in pairs(ESPs) do
+            table.remove(ESPs, index)
+            datatable[1]:Remove()
         end
     end
 }
