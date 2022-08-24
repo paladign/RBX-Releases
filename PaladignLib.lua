@@ -19,7 +19,8 @@ local Functions = {
     end,
     ["UpdateESP"] = function(tab)
         for _, datatable in pairs(ESPs) do
-            local vec = workspace.CurrentCamera:WorldToViewportPoint(datatable[2].Position)
+            local obj = datatable[2]
+            local vec = workspace.CurrentCamera:WorldToViewportPoint(obj.Position)
             local vec2 = Vector2.new(vec.X, vec.Y)
             datatable[1].Position = vec2
         end
