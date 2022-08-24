@@ -57,7 +57,8 @@ local Functions = {
     end,
     ["ClearESP"] = function()
         for index, datatable in pairs(ESPs) do
-            RemoveESP(datatable[2])
+            local draw = datatable[1]
+            draw:Remove()
         end
         table.clear(ESPs)
     end
