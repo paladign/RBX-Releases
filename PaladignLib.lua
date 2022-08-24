@@ -30,12 +30,13 @@ local Functions = {
             end
             if obj == nil then
                 datatable[1]:Remove()
+                table.remove(ESPs, index)
             end
         end
     end,
-    ["AddESP"] = function(obj)
+    ["AddESP"] = function(obj, display)
         local text = Drawing.new("Text")
-        text.Text = obj.Name
+        text.Text = display or obj.Name
         if obj.Parent:IsA("Model") then
             text.Text = obj.Parent.Name
         end
@@ -49,16 +50,16 @@ local Functions = {
     ["RemoveESP"] = function(obj)
         for index, datatable in pairs(ESPs) do
             if datatable[2] == obj then
-                table.remove(ESPs, index)
                 datatable[1]:Remove()
+                table.remove(ESPs, index)
             end
         end
     end,
     ["ClearESP"] = function()
         for index, datatable in pairs(ESPs) do
-            table.remove(ESPs, index)
             datatable[1]:Remove()
         end
+        table.clear(ESPs)
     end
 }
 
