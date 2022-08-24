@@ -21,7 +21,8 @@ local Functions = {
         text.Text = "Test"
         text.Color = Color3.new(1,0.5,0.75)
         text.Visible = true
-        text.Position = workspace.CurrentCamera:WorldToViewportPoint(obj.Position)
+        local vec = workspace.CurrentCamera:WorldToViewportPoint(obj.Position)
+        text.Position = Vector2.new(vec.X, Vec.Y)
     end
 }
 
