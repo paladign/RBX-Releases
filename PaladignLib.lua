@@ -7,9 +7,9 @@ local Functions = {
             if color ~= nil then
                 Highlight.FillColor = color
             end
-            Highlight.OutlineColor = Highlight.Fillcolor
+            Highlight.OutlineColor = Highlight.FillColor
         elseif creating == false then
-            for _, obj in pairs(inst:GetChildren()) do
+            for _, obj in pairs(obj:GetChildren()) do
                 if obj:IsA("Highlight") then
                     obj:Destroy()
                 end
@@ -22,7 +22,7 @@ local Functions = {
         text.Color = Color3.new(1,0.5,0.75)
         text.Visible = true
         local vec = workspace.CurrentCamera:WorldToViewportPoint(obj.Position)
-        text.Position = Vector2.new(vec.X, Vec.Y)
+        text.Position = Vector2.new(vec.X, vec.Y)
     end
 }
 
