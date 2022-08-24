@@ -37,7 +37,7 @@ local Functions = {
     ["AddESP"] = function(obj, display)
         local text = Drawing.new("Text")
         text.Text = display or obj.Name
-        if obj.Parent:IsA("Model") then
+        if obj.Parent:IsA("Model") and display == nil then
             text.Text = obj.Parent.Name
         end
         text.Size = 20
@@ -57,7 +57,7 @@ local Functions = {
     end,
     ["ClearESP"] = function()
         for index, datatable in pairs(ESPs) do
-            datatable[1]:Remove()
+            RemoveESP(datatable[2])
         end
         table.clear(ESPs)
     end
