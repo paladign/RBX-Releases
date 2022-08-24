@@ -27,7 +27,7 @@ local Functions = {
     end,
     ["AddESP"] = function(obj)
         local text = Drawing.new("Text")
-        text.Text = "Test"
+        text.Text = obj.Name
         text.Size = 50
         text.Center = true
         text.Color = Color3.new(1,0.5,0.75)
