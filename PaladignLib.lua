@@ -28,6 +28,9 @@ local Functions = {
     ["AddESP"] = function(obj)
         local text = Drawing.new("Text")
         text.Text = obj.Name
+        if obj.Parent:IsA("Model") then
+            text.Text = obj.Parent.Name
+        end
         text.Size = 50
         text.Center = true
         text.Color = Color3.new(1,0.5,0.75)
